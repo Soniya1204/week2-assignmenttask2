@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Overview</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <header class="navbar">
+      <div class="brand">
+        <div class="logo-icon">🔒</div>
+        <span>Authenticate Me</span>
+      </div>
+      <button id="logout-btn" class="btn btn-danger">Log Out</button>
+    </header>
+
+    <main class="dashboard-content">
+      <div class="welcome-card">
+        <h1>Hello, <span id="user-display">User</span> 👋</h1>
+        
+      </div>
+
+      <div class="grid-container">
+        <div class="info-card">
+          <span class="card-label">Registered Email</span>
+          <h3 id="email-display">loading...</h3>
+        </div>
+
+        <div class="info-card">
+          <span class="card-label">Account Status</span>
+          <h3><span class="badge badge-success">Active</span></h3>
+        </div>
+
+        <div class="info-card">
+          <span class="card-label">Member Since</span>
+          <h3>2024-01-01</h3>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    async function loadDashboard() {
+      try {
+        const res = await fetch('/api/auth/me', { credentials: 'include' });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('user-display').innerText = data.user.username;
+          document.getElementById('email-display').innerText = data.user.email;
+        } else {
+          window.location.href = '/index.html';
+        }
+      } catch (err) {
+        window.location.href = '/index.html';
+      }
+    }
+
+    document.getElementById('logout-btn').addEventListener('click', async () => {
+      await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
+      window.location.href = '/index.html';
+    });
+
+    loadDashboard();
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auth System | Login & Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="card">
+      <div class="card-header">
+        <h2 id="form-title">Welcome Back</h2>
+        <p id="form-subtitle">Enter your credentials to access your account</p>
+      </div>
+
+      <form id="auth-form">
+        <div class="form-group" id="username-group" style="display: none;">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="johndoe" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="name@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" required />
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn btn-primary">Sign In</button>
+      </form>
+
+      <div id="msg" class="alert-msg"></div>
+
+      <div class="card-footer">
+        <span id="toggle-text">Don't have an account?</span>
+        <button type="button" class="btn-link" id="toggle-btn">Create an account</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
