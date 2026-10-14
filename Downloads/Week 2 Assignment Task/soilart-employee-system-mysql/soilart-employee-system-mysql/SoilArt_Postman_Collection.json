@@ -1,0 +1,46 @@
+{
+	"info": {
+		"name": "SoilArt Employee Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Employees",
+			"request": {
+				"method": "GET",
+				"url": "http://localhost:5000/api/employees"
+			}
+		},
+		{
+			"name": "Add Employee",
+			"request": {
+				"method": "POST",
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Ramesh Patel\",\n  \"phone\": \"9812345678\",\n  \"email\": \"ramesh@soilart.in\",\n  \"division\": \"Pottery & Clay Shaping\",\n  \"role\": \"Senior Clay Potter\",\n  \"salary\": 35000,\n  \"joinDate\": \"2023-04-10\",\n  \"status\": \"Active\"\n}"
+				},
+				"url": "http://localhost:5000/api/employees"
+			}
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"method": "PUT",
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Ramesh Patel\",\n  \"phone\": \"9812345678\",\n  \"email\": \"ramesh@soilart.in\",\n  \"division\": \"Pottery & Clay Shaping\",\n  \"role\": \"Lead Clay Potter\",\n  \"salary\": 40000,\n  \"joinDate\": \"2023-04-10\",\n  \"status\": \"Active\"\n}"
+				},
+				"url": "http://localhost:5000/api/employees/SA-101"
+			}
+		},
+		{
+			"name": "Delete Employee",
+			"request": {
+				"method": "DELETE",
+				"url": "http://localhost:5000/api/employees/SA-101"
+			}
+		}
+	]
+}
